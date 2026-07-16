@@ -2,23 +2,26 @@
 interface Props {
   src: string;
   alt?: string;
+  title?: string;
   class?: string;
   [key: string]: any;
 }
 
-const { src, alt, class: className, ...props } = Astro.props;
+const { src, alt, title, class: className, ...props } = Astro.props;
 ---
 <div class="my-8 overflow-hidden rounded-lg border bg-muted">
   <img
     src={src}
     alt={alt || ""}
+    title={title}
     class={`w-full h-auto object-cover transition-all hover:scale-105 ${className || ''}`}
     loading="lazy"
     {...props}
   />
-  {alt && (
-    <p class="px-4 py-2 text-center text-sm text-muted-foreground italic my-0!">
-      {alt}
-    </p>
+  {(alt || title) && (
+    <div class="px-4 py-2.5 text-center text-sm text-muted-foreground border-t bg-muted/40 my-0! flex flex-col gap-0.5">
+      {alt && <span class="font-medium text-foreground/80 leading-snug">{alt}</span>}
+      {title && <span class="text-xs opacity-80 leading-snug">{title}</span>}
+    </div>
   )}
 </div>
