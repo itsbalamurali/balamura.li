@@ -65,10 +65,11 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
         return 'light';
       })();
       
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
+      document.documentElement.classList.remove('dark', 'hacker');
+      if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+      } else if (theme === 'hacker') {
+        document.documentElement.classList.add('hacker');
       }
       window.localStorage.setItem('theme', theme);
     </script>
