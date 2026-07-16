@@ -8,4 +8,197 @@ image: ""
 
 # A Digital Disgrace: India's Trademark E-Filing Portal in 2026
 
-*I will fill the body later.*
+The IP India Trademark E-Filing Portal is not just outdated — it is a monument to institutional apathy, a bureaucratic insult wrapped in ASP.NET WebForms, and a direct contradiction of every "ease of doing business" promise this country has ever made.
+
+## Welcome to 2006. Please Install Java.
+
+Visit the IP India Trademark E-Filing Portal in February 2026, and you are greeted by a registration form that looks like it was built during the Bush administration — because it probably was. The page runs on ASP.NET WebForms, a framework Microsoft itself has all but abandoned. The URL alone — `frmNewRegistration.aspx` — screams Hungarian notation and a development philosophy that peaked when people still used Orkut.
+
+But the aesthetics are the least of your problems.
+
+To actually use this portal — to file a trademark, to protect your mark, to participate in the supposed "Startup India" dream — you must enter a Kafkaesque gauntlet of legacy software dependencies:
+
+- **Java Runtime Environment (JRE 8 Update 162)**: You need this specific, ancient version. It is so outdated that Oracle has moved on by over fifteen major releases. You must manually add the portal URL to Java's "Exception Site List" because even Java's own built-in security infrastructure considers this site suspicious.
+- **A DSC USB Token**: A physical hardware dongle that you must plug into your computer, with vendor-specific drivers that may or may not work depending on your operating system, your browser, or this particular phase of the moon.
+- **The "Signer Utility"**: A mysterious downloadable desktop helper that serves as the glue between your browser, your DSC token, and the portal's signing infrastructure. It works best on Internet Explorer, a browser Microsoft officially killed in June 2022.
+- **Internet Explorer or "IE Mode" in Edge**: Yes, in 2026, the official recommendation for India's intellectual property filing system is to use a browser that has been discontinued and only exists as a compatibility shim inside Edge. Some guides helpfully suggest "Mozilla Firefox (older versions)" as an alternative — because nothing says cutting-edge governance like telling citizens to downgrade their browser security.
+
+This isn't a technology stack. It's an archaeological dig.
+
+## Windows or Nothing
+
+Let's be absolutely clear about what this means in practice: the IP India Trademark portal is, for all practical purposes, a Windows-only system.
+
+If you're a startup founder on a MacBook — tough luck. If you're a developer on Linux — forget it. If you're trying to file from your phone while travelling — laughable. If you're an international applicant trying to protect your mark in India from abroad using a Chromebook — the portal doesn't know you exist.
+
+In an era where the Indian government itself pushes DigiLocker, UPI, Aadhaar, and UMANG as shining examples of platform-agnostic digital governance, the trademark office operates like it's running a private intranet for a single government department in 2005. The dissonance isn't just embarrassing — it's policy malpractice.
+
+## Aadhaar eSign Exists. Use It.
+
+Here's what makes this truly infuriating: India has already solved this problem.
+
+Aadhaar-based electronic signatures (eSign) have been legally valid under the Information Technology Act since 2015. They work on any device, any browser, any operating system. Authentication happens via OTP or biometrics — no USB tokens, no Java applets, no driver installations, no signer utilities.
+
+The Ministry of Corporate Affairs already supports Aadhaar eSign on the MCA21 V3 portal. You can incorporate a company, file annual returns, and complete Director KYC — all with Aadhaar-based authentication on a modern, cloud-native platform. The Income Tax Department accepts it. The GST portal accepts it. EPFO accepts it. The Indian Patent Office — which is under the same Controller General (CGPDTM) as the Trademark Office — has been making incremental improvements.
+
+And yet the Trademark portal still demands a Class 3 DSC on a USB token, registered through a Java applet, accessed via a dead browser.
+
+The technology to fix this isn't experimental. It isn't foreign. It isn't expensive. It is already deployed across dozens of Indian government portals. The Trademark Office simply cannot be bothered.
+
+## The MCA Integration That Should Already Exist
+
+When you register on the IP India Trademark portal, you are asked to manually fill in your applicant details — name, address, entity type, registration details. If you're a company, you re-enter information that the Ministry of Corporate Affairs already has. If you're a proprietor, you re-enter information that's already verified against your PAN, your Aadhaar, your GST registration.
+
+Why?
+
+The MCA21 V3 portal has an API-first architecture designed explicitly for interoperability. It was built on microservices. It was designed for cross-ministry integration. The entire point of Digital India was to create a unified identity and data layer so that citizens and businesses don't have to re-enter the same information on seventeen different government websites.
+
+Imagine this: you go to register on the Trademark portal. You authenticate with Aadhaar. The system pulls your verified name and address. If you're a company, it queries MCA and auto-populates your CIN, registered office, director details. If you're a startup, it checks the DPIIT recognition database. If you're filing as a proprietor, it verifies against GST.
+
+One authentication. Zero redundant data entry. Cross-verified in real time.
+
+This isn't a fantasy. This is literally what the India Stack was built for. This is what the JAM (Jan Dhan–Aadhaar–Mobile) trinity was supposed to enable. This is what every NITI Aayog presentation on "Digital Public Infrastructure" has been promising since 2015.
+
+But the Trademark Office didn't get the memo. Or got it, and used it as scrap paper.
+
+## A Tale of Two Portals: EUIPO vs. IP India
+
+I recently registered a trademark with the European Union Intellectual Property Office (EUIPO), covering all 27 EU member states — from Estonia to Portugal, from Finland to Greece. Let me describe the experience, because the contrast with IP India is so stark it borders on satire.
+
+**Filing the application**: I opened the EUIPO website on my browser — any browser, any operating system, any device. No Java. No USB dongle. No signer utility. No "IE Mode." I selected the "Easy Filing" form — a clean, guided online process that one commentator accurately compared to booking a flight online. I picked my goods and services from EUIPO's Harmonised Database (a pre-approved, pre-translated classification database shared across all 27 EU IP offices), entered my applicant details, uploaded my mark, and paid €850 by card. Total time from opening the browser to submitted application: under 15 minutes.
+
+No DSC. No Java Runtime Environment 8 Update 162. No vendor-specific USB token drivers. No "Exception Site List." No prayer.
+
+**The examination**: EUIPO's Fast Track procedure — which you qualify for simply by using their Harmonised Database terms and paying upfront — got my application examined and published in approximately three weeks. Not three months. Not 550 days. Three weeks. I could track every status change in real time through my User Area dashboard. When publication happened, it triggered a three-month opposition window. No opposition was filed.
+
+**Registration**: My trademark was registered and the certificate published — start to finish, from filing to registration — in under four months. Covering 27 countries. 450 million consumers. One application. One fee. One portal that works on a phone.
+
+And EUIPO isn't resting on its laurels. They recently launched "Early TM Screening" — an AI-powered pre-assessment tool that checks your proposed mark for conflicts, descriptiveness, and distinctiveness before you even file. You get a downloadable PDF report and can proceed directly to filing. They have a Strategic Plan 2030 roadmap. They are actively investing in making IP registration easier, not harder.
+
+Now compare this with India:
+
+| Metric / Feature | EUIPO (European Union) | IP India (India) |
+| :--- | :--- | :--- |
+| **Jurisdiction** | 27 sovereign nations (450M+ consumers) | 1 nation |
+| **Browser Support** | Any modern browser (Chrome, Safari, Firefox, Edge) | Internet Explorer (or Edge IE Mode) |
+| **OS Compatibility** | Platform agnostic (Windows, macOS, Linux, Mobile) | Effectively Windows-only |
+| **Dependencies** | None | JRE 8 Update 162, DSC USB token, Signer Utility |
+| **Filing Interface** | Seamless, guided web form (Fast Track available) | Legacy ASP.NET WebForms (`frmNewRegistration.aspx`) |
+| **AI / Pre-screening** | Yes ("Early TM Screening" pre-assessment) | None |
+| **Filing to Registration**| Under 4 months (Fast Track examined in 3 weeks) | 1.5 to 2+ years (550+ days backlog for examination) |
+
+Let that table sink in. EUIPO covers twenty-seven sovereign nations with a single, frictionless, browser-based filing system that works on a phone and gets you to registration in under four months. India — a single country that processes over 400,000 trademark applications a year — forces you through a Windows-only Java-dependent portal and then makes you wait a year and a half just for examination.
+
+The Indian government will protest that EUIPO has more resources, or that volumes are different, or that comparisons are unfair. But the filing interface — the technology, the UX, the platform compatibility — has nothing to do with examiner headcount. A modern web form costs the same whether you process 100 applications or 100,000. The portal being broken is not a capacity problem. It is a choice.
+
+## The Cost of This Negligence
+
+This isn't just an aesthetic complaint or a technologist's pet peeve. This broken portal has real costs:
+
+- **For startups and MSMEs**: India has over 63 million MSME units, with over 7 crore registered on the Udyam platform. The government's own Startup India programme encourages trademark registration. But the filing system assumes you have a Windows desktop, a ₹2,000/year DSC, Java expertise, and infinite patience. Many first-time applicants give up and pay agents ₹5,000–₹15,000 to navigate a system that should cost them nothing more than the government filing fee of ₹4,500.
+- **For trademark agents and attorneys**: Professionals who file hundreds of applications a year waste untold hours battling DSC detection failures, Java security exceptions, and portal downtime. Every "DSC not detected" error is billable time — paid by their clients, not by the government that created the problem.
+- **For India's global reputation**: India climbed to 63rd in the World Bank's last Doing Business ranking. The replacement B-READY assessment hasn't even ranked India yet — it's scheduled for 2026. Every foreign company that tries to register a trademark in India and encounters this portal sees a country that talks about digital transformation while running critical IP infrastructure on technology from the previous decade.
+- **For innovation itself**: A country that aspires to be a global IP powerhouse — filing over 400,000 trademark applications annually — cannot afford to have its primary filing interface be a deterrent to participation.
+
+## Who Is Responsible?
+
+This dysfunction doesn't happen in a vacuum. It has names, designations, and office addresses. Public servants are accountable to the public, and the public deserves to know who presides over this decay.
+
+### Prof. Dr. Unnat P. Pandit — Controller General (CGPDTM)
+
+The buck stops here — or at least it should. Prof. Dr. Unnat P. Pandit has held the office of CGPDTM since April 2022. He is the administrative head of the entire Indian intellectual property apparatus — Patents, Trademarks, Designs, Copyrights, and Geographical Indications.
+
+Under his watch, the Trademark E-Filing portal has remained frozen in its legacy state while the rest of Digital India has leapfrogged into modern infrastructure. But the portal is arguably the least of the problems that have plagued his tenure:
+
+- His appointment itself has been challenged in the Delhi High Court and the Supreme Court by the All India Patent Officers' Welfare Association (AIPOWA), which alleges he lacked the requisite eligibility and that proper recruitment protocols were bypassed.
+- The Ministry of Commerce and Industry has progressively stripped him of key powers: his authority over capital expenditure and IT procurement was revoked in January 2025; his power to transfer Group A officers was curtailed in July 2024; and the IT wing of CGPDTM was placed under DPIIT Director Subhash Chandra Karol in August 2024.
+- Over three lakh IP rights — patents and trademarks combined — granted during his tenure were invalidated after the Union Ministry of Law found that they had been processed by "outsourced contractual employees" who had no statutory authority to grant IP rights.
+
+And yet he remains in charge. And the portal remains in 2006.
+
+Prof. Pandit's LinkedIn describes him as someone engaged in "IP Innovation and Entrepreneurship." The irony is breathtaking. The portal he oversees is the single greatest barrier to IP innovation and entrepreneurship that the Indian government currently operates.
+
+### The Department for Promotion of Industry and Internal Trade (DPIIT)
+
+CGPDTM reports to DPIIT, which falls under the Ministry of Commerce and Industry. DPIIT's mandate is the promotion of industry and trade. It administers Startup India. It manages the National Single Window System. It is the nodal body for Ease of Doing Business reforms.
+
+And yet DPIIT has allowed the Trademark portal to rot. Despite being the parent department, despite having taken over IT procurement authority from CGPDTM, despite having the budget, the mandate, and the political will to digitise India's business infrastructure — DPIIT has not prioritised a basic portal rewrite.
+
+DPIIT's Joint Secretaries travel the country giving speeches about startup ecosystems and innovation hubs. Here's a suggestion: before promising "extensive support" to startups, ensure that a founder can actually register a trademark without installing Java 8 on a Windows XP machine.
+
+### The Ministry of Commerce and Industry
+
+Ultimately, the trademark infrastructure falls under the purview of the Union Minister for Commerce and Industry. The Ministry that promotes "Make in India" and "Brand India" on the world stage, that routinely cites India's growing IP filings as evidence of innovation — that same Ministry operates an e-filing system that would embarrass a district-level land records office.
+
+Every time India's Ministry of Commerce promotes the country at WIPO assemblies or bilateral trade negotiations, it does so while its own trademark filing system runs on Internet Explorer and Java applets.
+
+### The NIC / IT Vendor Ecosystem
+
+The portal was almost certainly built and is maintained by the National Informatics Centre (NIC) or a contracted IT vendor. Whoever they are, they have been collecting maintenance contracts for a system that has seen no meaningful architectural upgrade in nearly two decades. In any private-sector context, this would be grounds for contract termination. In government, it's apparently grounds for renewal.
+
+## What Needs to Happen
+
+This isn't complicated. The blueprint already exists within the Indian government's own ecosystem:
+
+1. **Kill the Java dependency**: Modern browser-based signing (WebCrypto API, PKCS#11 bridges) has been standard for over a decade. Even if DSC tokens must remain an option, they shouldn't require a 2016-era Java runtime.
+2. **Adopt Aadhaar eSign**: Make Aadhaar eSign the primary authentication and signing mechanism. If it's good enough for incorporating a company on MCA21, it's good enough for filing a trademark.
+3. **Build on modern web standards**: The portal should work on Chrome, Firefox, Safari, Edge — on Windows, macOS, Linux, and mobile. In 2026, a government portal that only works on one operating system with one deprecated browser is a barrier.
+4. **Integrate with the India Stack**: Pull applicant data from MCA, GST, DPIIT, and Aadhaar. Eliminate redundant data entry. Verify in real time.
+5. **Open-source the filing interface**: Let the developer community build better clients, mobile apps, and API integrations. The Patent Office, the Income Tax Department, and GST have all benefited from ecosystem engagement.
+
+## The Bottom Line
+
+India wants to be a $5 trillion economy. India wants to be a global hub for innovation. India wants every street vendor, every D2C brand to formalise, protect their IP, and participate in the knowledge economy.
+
+And then India asks them to install Java 8 Update 162, plug in a USB dongle, open Internet Explorer, and pray. Then wait 550 days for examination.
+
+The IP India Trademark E-Filing portal isn't just technically obsolete. It is a policy failure with names attached to it. Prof. Unnat P. Pandit, CGPDTM. DPIIT. The Ministry of Commerce and Industry. These are specific offices with specific leaders who have specific mandates to modernise, and who have specifically failed.
+
+It is a symbol of a government that has built world-class digital public infrastructure — UPI, Aadhaar, DigiLocker, ONDC, MCA21 V3 — and then forgotten to connect it to the very departments that are supposed to enable business. A government that can process ₹20 lakh crore in UPI transactions annually but cannot build a trademark filing form that works on Chrome.
+
+In 2026, there is no excuse. Not technical. Not budgetary. Not regulatory. Only institutional inertia, institutional dysfunction, and institutional impunity.
+
+Fix it. Or stop pretending India is open for business.
+
+---
+
+## References
+
+1. **IP India Trademark E-Filing Portal** — New User Registration Form
+2. **"How to Update DSC in Trademark Portal | DSC Settings & Registration Guide"** — *SignYourDoc* (April 2024)
+3. **"How to Add Digital Signature Certificate (DSC) for Trademark eFiling"** — *EverSign* (October 2024)
+4. **"Solution for 'Invalid Digital Signature' or 'Invalid Login' Error in Trademark Portal"** — *Digital Signature Spot* (July 2025)
+5. **"How to Add Digital Signature in Trademark Registration?"** — *Certificate.Digital*
+6. **"IPIndiaOnline: Trademark, Patent, and Design Services in India"** — *Lexology* (December 2025)
+7. **"IP India — Trademark Registration: Step-by-Step 2025 Guide"** — *EbizFiling* (November 2025)
+8. **"India e-signature for company registration"** — *eSignGlobal* (December 2025)
+9. **"MCA Updates 2026: Complete Guide to Ministry of Corporate Affairs V3 Portal"** — *CMA Knowledge* (January 2026)
+10. **"What is MCA 21 Portal? Services, MCA Registration and MCA V3"** — *FinGuru India* (November 2025)
+11. **"MCA21 V3 Portal Launch: 38 Company Forms to Go Live on July 14, 2025"** — *IndiaFilings* (June 2025)
+12. **"What is MCA 21 Portal? — MCA 21 Services, MCA Registration and MCA V3"** — *ClearTax* (April 2025)
+13. **"EUIPO — Registration Process"** — *EUIPO*
+14. **"EUIPO — Fast Track Conditions"** — *EUIPO*
+15. **"EUIPO — Apply Now for an EUTM"** — *EUIPO*
+16. **"EUIPO launches new AI-powered tool to screen trade marks before filing"** — *EUIPO*
+17. **"How Long Does a Trademark Application Take in EU"** — *Pocket IP* (October 2025)
+18. **"How to register an EU trademark: a 5 step guide"** — *Moeller IP* (May 2025)
+19. **"Trademark Registration Under EUIPO: All You Need to Know"** — *Sagacious Research* (September 2025)
+20. **"EUTM System — The Procedure from Application to Registration"** — *ChinaIPToday*
+21. **"Current Pendency of Trademark Applications in India — Trademark Registry Delays Explained"** — *BusinessMitra* (September 2025)
+22. **"Registering a Trademark in India: What International Businesses Need to Know"** — *Harris Sliwoski LLP* (November 2025)
+23. **"Process of Registration of Trademark, Process and Timeline in India"** — *Obhan & Associates* (September 2025)
+24. **"Supreme Court to Decide Patent Controller Appointment Dispute"** — *SpicyIP* (June 2025)
+25. **"Sailing Troubled Waters: A Look at the Spiral of Controversies that the CGPDTM Has Fallen Into"** — *SpicyIP* (September 2024)
+26. **"Controller general of patents, whose appointment stands disputed, lost crucial powers over past months"** — *ThePrint* (March 2025)
+27. **"Threatened with transfers for challenging patent chief's appointment, patent officers' body tells SC"** — *ThePrint* (May 2025)
+28. **"Plea in Delhi HC challenges appointment of controller general of patents, in dock for 'outsourcing' work"** — *ThePrint* (December 2024)
+29. **"Patent chief's appointment: Centre defends its decision in SC but admits 'departure from protocol'"** — *ThePrint* (September 2025)
+30. **"Proposal for Appointment of Prof. Unnat P. Pandit to the post of CGPDTM"** — *S.S. Rana & Co.* (December 2022)
+31. **Indian Patent Office** — *Wikipedia*
+32. **Office of the Controller General of Patents, Designs and Trade Marks (CGPDTM)** — *LinkedIn*
+33. **Intellectual Property India** — *Official Website — Government of India*
+34. **"India's Ease of Doing Business Performance Strengthened; World Bank B-READY Assessment Scheduled in 2026"** — *PIB, Government of India*
+35. **"Ease of Doing Business Watch 2025"** — *CII Blog* (April 2025)
+36. **MSME Sector Overview** — *IBEF (India Brand Equity Foundation)*
+37. **"DPIIT Joint Secretary Sanjiv Singh Engages with Tripura Startups"** — *Northeast Today* (February 2026)
+38. **Department for Promotion of Industry and Internal Trade** — *Wikipedia*
