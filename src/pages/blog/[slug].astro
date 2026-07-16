@@ -91,3 +91,44 @@ const jsonLd = {
     </article>
   </div>
 </Layout>
+
+<script>
+  function setupMermaid() {
+    const mermaidBlocks = document.querySelectorAll('.language-mermaid');
+    if (mermaidBlocks.length > 0) {
+      import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs')
+        .then((m) => {
+          const isDark = document.documentElement.classList.contains('dark') || 
+                         document.documentElement.classList.contains('hacker');
+          
+          m.default.initialize({ 
+            startOnLoad: false, 
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+
+          // Render each block
+          mermaidBlocks.forEach((block, index) => {
+            const code = block.textContent || "";
+            const id = `mermaid-render-${index}`;
+            const container = document.createElement('div');
+            container.className = 'my-8 flex justify-center w-full overflow-x-auto';
+            
+            const pre = block.parentElement;
+            if (pre) {
+              pre.parentNode?.replaceChild(container, pre);
+              m.default.render(id, code).then(({ svg }) => {
+                container.innerHTML = svg;
+              });
+            }
+          });
+        });
+    }
+  }
+
+  // Setup on page load
+  setupMermaid();
+  
+  // Setup on View Transitions navigation
+  document.addEventListener('astro:after-swap', setupMermaid);
+</script>

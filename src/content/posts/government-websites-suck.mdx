@@ -1,0 +1,152 @@
+---
+title: "Government Websites Suck"
+description: "A look at the state of public digital infrastructure in India, the core issues, and the roadmap to fixing government portals."
+date: "2026-07-16"
+tags: ["GovTech", "Opinion", "Architecture"]
+image: "/images/gov-websites-cover.jpg"
+imageCredit: "Illustration: Legacy GovTech Portal Nightmare / Antigravity AI"
+---
+
+# Government Websites Suck
+
+Government Websites Suck and we all know that. They don’t work at times, or they don’t work at all. Uptime? (What's that?) Taxpayer money? That's a joke in this Country. 
+
+The primary culprits? Look no further than the **National Informatics Centre (NIC)** and **CDAC** (Centre for Development of Advanced Computing). These monolithic institutions have monopolized public IT projects for decades, delivering legacy architectures, poor user interfaces, and non-existent service levels. The taxpayer funds this infrastructure, yet citizens are forced to navigate digital interfaces that feel like they were compiled on a Pentium II processor in 2004.
+
+To build a modern digital India, we need a complete reboot of GovTech standards. Let's compare the legacy nightmare and the modern API-first flow:
+
+<svg viewBox="0 0 800 450" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" class="my-8 rounded-xl border border-border bg-card/30 p-6">
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22c55e" />
+    </marker>
+  </defs>
+
+  <text x="200" y="30" text-anchor="middle" font-weight="bold" fill="#ef4444" font-size="16" font-family="sans-serif">LEGACY NIGHTMARE (NIC / CDAC)</text>
+  <text x="600" y="30" text-anchor="middle" font-weight="bold" fill="#22c55e" font-size="16" font-family="sans-serif">MODERN API-FIRST STANDARD</text>
+
+  <line x1="400" y1="10" x2="400" y2="430" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4,4" />
+
+  <g transform="translate(80, 60)">
+    <rect width="240" height="60" rx="6" fill="var(--muted)" stroke="#ef4444" stroke-width="1" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="var(--foreground)" font-family="sans-serif">1. Install Java 8 (Update 162)</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Add exception lists; disable security warnings</text>
+  </g>
+  <g transform="translate(80, 150)">
+    <rect width="240" height="60" rx="6" fill="var(--muted)" stroke="#ef4444" stroke-width="1" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="var(--foreground)" font-family="sans-serif">2. Plug in DSC USB Token</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Install vendor drivers; debug token detection</text>
+  </g>
+  <g transform="translate(80, 240)">
+    <rect width="240" height="60" rx="6" fill="var(--muted)" stroke="#ef4444" stroke-width="1" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="var(--foreground)" font-family="sans-serif">3. Run Windows + IE Mode</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Run signer utility; bypass browser warnings</text>
+  </g>
+  <g transform="translate(80, 330)">
+    <rect width="240" height="60" rx="6" fill="#fef2f2" class="dark:fill-red-950/20" stroke="#ef4444" stroke-width="1.5" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444" font-family="sans-serif">4. "DSC Not Detected" / Failure</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Pay agent ₹10,000 fee to file manually</text>
+  </g>
+
+  <path d="M 200 120 L 200 145" stroke="#ef4444" stroke-width="1.2" marker-end="url(#arrow-red)" />
+  <path d="M 200 210 L 200 235" stroke="#ef4444" stroke-width="1.2" marker-end="url(#arrow-red)" />
+  <path d="M 200 300 L 200 325" stroke="#ef4444" stroke-width="1.2" marker-end="url(#arrow-red)" />
+
+  <g transform="translate(480, 80)">
+    <rect width="240" height="60" rx="6" fill="var(--muted)" stroke="#22c55e" stroke-width="1" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="var(--foreground)" font-family="sans-serif">1. Log In via OAuth2 SSO</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Any browser, device or OS (DigiLocker/PAN)</text>
+  </g>
+  <g transform="translate(480, 190)">
+    <rect width="240" height="60" rx="6" fill="var(--muted)" stroke="#22c55e" stroke-width="1" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="var(--foreground)" font-family="sans-serif">2. Auto-Populate details from API</text>
+    <text x="120" y="44" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">Fetch CIN / Signatories from MCA instantly</text>
+  </g>
+  <g transform="translate(480, 300)">
+    <rect width="240" height="65" rx="6" fill="#f0fdf4" class="dark:fill-green-950/20" stroke="#22c55e" stroke-width="1.5" />
+    <text x="120" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="#22c55e" font-family="sans-serif">3. Sign with Aadhaar eSign</text>
+    <text x="120" y="46" text-anchor="middle" font-size="10" fill="var(--muted-foreground)" font-family="sans-serif">OTP authentication; instant validation</text>
+  </g>
+
+  <path d="M 600 140 L 600 185" stroke="#22c55e" stroke-width="1.2" marker-end="url(#arrow-green)" />
+  <path d="M 600 250 L 600 295" stroke="#22c55e" stroke-width="1.2" marker-end="url(#arrow-green)" />
+</svg>
+
+---
+
+## The GovTech Reform Roadmap
+
+Here is the architectural blueprint of immediate reforms that must be enforced across India's digital public services:
+
+### 1. Single Sign-On (SSO): Ending Credential Spaghetti
+Currently, every public portal operates as a digital silo. A citizen must maintain different accounts, passwords, and security answers for Income Tax, GST, MCA, EPF, and local municipal corporations. 
+- **The Reform**: Standardize on **OAuth2-based Single Sign-On (SSO)** protocols. 
+- **The Flow**: Portals should integrate a unified "Login with Aadhaar/DigiLocker" gateway. A citizen authenticates once on a secure central portal, and a scoped, cryptographically signed token is issued to the destination website, verifying identity without exposing raw credentials.
+
+### 2. Real-Time MCA Integration for Corporate KYC
+When establishing corporate relationships or submitting business filings, portals still require users to manually type in their Company Registration Number (CIN), upload scanned PDFs of incorporation certificates, and manually input director listings.
+- **The Reform**: Mandate live API integration with the Ministry of Corporate Affairs (MCA) database.
+- **The Flow**: When a business enters its CIN, the system queries the MCA registry in real time to auto-populate incorporation status, active director lists, and corporate signatory details. This eliminates data entry errors and manual paperwork checks.
+
+### 3. State-Level Registries for Partnership & Proprietorship Firms
+While private limited companies are registered centrally at the MCA, over 70% of Indian MSMEs operate as partnership firms or sole proprietorships. Their registration data is scattered across municipal shops, state tax departments, and local registries.
+- **The Reform**: Establish a federated, standardized data registry from state governments.
+- **The Flow**: Create open, queried APIs that state departments must hook into. This allows central agencies and private service providers to instantly cross-check partnership deeds, local municipal certificates, and sole proprietorship status without needing physical stamp verifications.
+
+### 4. Inclusive Multilingualism
+Digital India is meant for all citizens, not just the English-speaking metropolitan elite. Yet, critical portals for agriculture, local taxes, land titles, and licensing are either English-only or use poorly translated machine Hindi.
+- **The Reform**: Central portals must natively support all 22 official regional languages. State-level sites must support both English and the state's dominant regional languages.
+- **Implementation**: Avoid lazy machine translation. Portals must maintain audited, localized language layouts so that a farmer in Tamil Nadu or a micro-entrepreneur in Assam can navigate complex legal filings without paying translators.
+
+### 5. Independent SLA Auditing & Uptime Penalties
+In the private sector, hosting providers guarantee 99.9% to 99.99% uptime. If a server breaches this, financial penalties are triggered. In Indian GovTech, portals are taken down for "weekend maintenance," or crash under minor traffic surges with complete impunity.
+- **The Reform**: Enforce strict Service Level Agreements (SLAs) with public uptime dashboards.
+- **Implementation**: If a government portal (maintained by CDAC or NIC) goes offline, the contracting vendor must face immediate, automated financial penalties. System status must be publicly auditable, and recurrent downtime should lead to the termination of the IT service contract rather than automated renewals.
+
+### 6. UIDAI Unified Identity Registry
+India has too many identity numbers. Individuals have Aadhaar, PAN, Passport, Driving License, and Voter ID. Businesses have PAN, TAN, CIN, GSTIN, IEC, and Udyam IDs. This fragmentation results in data silos and fraud.
+- **The Reform**: Empower UIDAI to maintain a unified data identification registry mapping these numbers.
+- **Implementation**: UIDAI acts as the central link registry, allowing authorized systems to resolve the mapping (e.g., querying the PAN associated with a specific GSTIN or Aadhaar). This creates a single source of truth for identity lookup while maintaining privacy controls.
+
+### 7. Aadhaar eSign: Killing the USB DSC Token Racket
+The current "signer utilities" and Class 3 Digital Signature Certificate (DSC) USB dongles are a government-created monopoly. They force citizens to purchase physical hardware tokens, install custom drivers, and renew annual certificates from private middlemen.
+- **The Reform**: Mandate Aadhaar-based eSign as the primary electronic signature standard.
+- **Implementation**: Aadhaar eSign has been legally valid under the Information Technology Act since 2015. It allows legally binding electronic signing via secure browser-based OTP or biometric authentication, bypassing physical hardware dongles and obsolete Java applets completely. 
+- *Note*: I had to publicly name and shame the IP India Trademark Portal to get them to integrate a proper, modern digital signature system instead of JRE 8 and physical USB tokens. We shouldn't need public shame campaigns to get basic modern technology implemented.
+
+## The Oligopoly of Mediocrity: Infosys, TCS, and Corporate Failures
+
+The blame does not lie solely with government bureaucracy. The private-sector giants awarded these massive, multi-thousand-crore public IT contracts are equally responsible. Monolithic Indian IT service providers like **Infosys** and **TCS** have systematically ruined India's flagship public portals.
+
+- **Infosys and the Income Tax / GST Disasters**: Infosys was awarded the ₹4,242 crore contract to revamp the Income Tax portal, as well as the core GST Network (GSTN) contract. Both portals launched with catastrophic, systemic bugs. Taxpayers and small businesses faced blank screens, calculation errors, and database timeouts for months, forcing the Finance Ministry to repeatedly extend deadlines and issue public warnings to the vendor.
+- **TCS and Corporate Registry Bottlenecks**: TCS-managed systems (such as legacy corporate registries and passport portals) have routinely suffered from severe performance bottlenecks, archaic browser dependency issues, and lack of modern API access.
+- **Why this happens**: These corporate giants treat government projects as low-margin maintenance chores. Instead of assigning their top-tier engineering talent, they staff these national public projects with fresh graduates who have minimal training, leading to bloated, poorly-architected systems that fail to scale under real-world traffic.
+
+## The Contrast: Global Benchmarks
+
+If you look outside India, government portals do not have to be slow, broken, or archaic. Several global benchmarks demonstrate what world-class GovTech looks like:
+
+### 1. Estonia (e-Residency & X-Road)
+Estonia is the gold standard of digital-first governance. 99% of their public services are online, secure, and available 24/7/365. Under the hood, they use **X-Road**, an open-source, decentralized data exchange layer. When an Estonian citizen buys property or starts a company, they do not upload paper documents or navigate legacy signers; databases talk to databases securely and instantly.
+
+### 2. United Kingdom (GOV.UK)
+The UK's centralized portal is a masterclass in web design. Built by the **Government Digital Service (GDS)**, GOV.UK was designed from the ground up for speed, simplicity, and accessibility. It is completely free of complex plugins, Java applets, or flash requirements. It loads instantly on a 3G mobile connection, works on any browser, and has won prestigious design awards for prioritizing user needs over bureaucratic paper-trails.
+
+### 3. United States (USDS & Login.gov)
+Following the disastrous launch of Healthcare.gov in 2013, the US government established the **United States Digital Service (USDS)** — a team of top-tier product managers and developers pulled from Silicon Valley. They rebuilt the portal and established **Login.gov**, a unified, secure Single Sign-On (SSO) platform built on modern OAuth2 and OpenID Connect standards. It is clean, accessible, and easily integrated by any federal agency.
+
+## The Verdict: A Call for Empathy, Will, and Competence
+
+India already has all the pieces. We have the technical recipe, the architectural blueprints (the India Stack, UPI, ONDC), and a world-class pool of software engineering talent. Yet, our day-to-day public portals remain broken. 
+
+The bottleneck is not technology. The core hurdles are:
+1. **Bureaucratic Red Tape**: Archaic procurement protocols and vendor lock-ins that shelter legacy systems.
+2. **Lack of Political Will**: Refusing to hold monoliths (like CDAC/NIC) and corporate giants (Infosys/TCS) contractually and financially accountable for service failures.
+3. **A Crisis of Empathy**: A complete disregard for the end-user. When these portals crash or fail to function, it is the citizen who pays the price in lost time, stress, and agent fees.
+
+Ultimately, there is a fundamental human issue: the teams building and maintaining these portals lack the curiosity, talent, and passion for their own craft. Too often, public systems are built by teams who have checked out — where 90% of the individuals involved demonstrate no interest, talent, or professional curiosity in software engineering. They write bloated, legacy code because it is comfortable, not because it is correct.
+
+Rebuilding India's digital public infrastructure with open APIs, modern frontends, and native authentication would save countless hours every single day for over a billion people. We have the talent. We have the code. What we need is the political motivation to demand excellence, dismantle bureaucratic monopolies, and build public software with actual empathy for the citizens who use it.
