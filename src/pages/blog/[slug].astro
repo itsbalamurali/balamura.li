@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import MDXImage from '../../components/MDXImage.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.image ? [post.data.image] : [],
+  "datePublished": post.data.date,
+  "dateModified": post.data.date,
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Balamurali Pandranki",
+      "url": "https://balamura.li/about",
+    },
+  ],
+};
+---
+
+<Layout 
+  title={post.data.title} 
+  description={post.data.description} 
+  image={post.data.image}
+  type="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="max-w-3xl mx-auto">
+    <!-- Back to blog link -->
+    <a
+      href="/blog"
+      class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 h-4 w-4">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Back to blog
+    </a>
+
+    <article class="prose prose-slate dark:prose-invert max-w-none">
+      <div class="mb-8">
+        <h1 class="text-4xl font-extrabold tracking-tight mb-2 text-foreground">{post.data.title}</h1>
+        <div class="flex gap-2 items-center text-muted-foreground mb-4">
+          <time datetime={post.data.date}>{post.data.date}</time>
+          {post.data.tags && (
+            <>
+              <span>•</span>
+              <div class="flex gap-2">
+                {post.data.tags.map((tag) => (
+                  <span class="bg-secondary px-2 py-0.5 rounded-full text-xs font-medium text-secondary-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        {post.data.image && (
+          <div class="mb-8 rounded-xl overflow-hidden border bg-muted">
+            <img 
+              src={post.data.image} 
+              alt={post.data.title}
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+      </div>
+
+      <!-- Render MDX Content with Custom Image Component -->
+      <Content components={{ img: MDXImage, Image: MDXImage }} />
+    </article>
+  </div>
+</Layout>

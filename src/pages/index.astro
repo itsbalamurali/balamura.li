@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+// Fetch all posts and sort by date descending
+const allPosts = await getCollection('posts');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Balamurali Pandranki",
+  "url": "https://balamura.li",
+  "jobTitle": "Enterprise Architect",
+  "sameAs": [
+    "https://github.com/itsbalamurali",
+    "https://twitter.com/itsbalamurali",
+    "https://linkedin.com/in/itsbalamurali"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Hoverture Deutschland GmbH"
+  }
+};
+---
+
+<Layout title="Balamurali Pandranki">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="flex flex-col gap-24">
+    <!-- Hero Section -->
+    <section class="flex flex-col gap-8 pt-10 md:pt-20 text-center md:text-left">
+      <h1 class="text-5xl font-black tracking-tighter md:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-br from-foreground to-muted-foreground pb-2 leading-tight">
+        Architecting <br class="hidden md:block" />
+        the Future.
+      </h1>
+      <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl font-light leading-relaxed">
+        I'm <span class="font-medium text-foreground">Balamurali Pandranki</span>. 
+        Enterprise Architect, Leader, and Cloud Native enthusiast. 
+        I build scalable systems and write about it.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4">
+        <a
+          href="/blog"
+          class="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 text-base h-12 font-medium shadow transition-colors"
+        >
+          Read the Blog
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a
+          href="/about"
+          class="inline-flex items-center justify-center rounded-full border border-input bg-background hover:bg-accent hover:text-accent-foreground px-8 text-base h-12 font-medium shadow-sm transition-colors"
+        >
+          About Me
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-end justify-between border-b pb-4">
+        <h2 class="text-3xl font-bold tracking-tight">Latest Thoughts</h2>
+        <a href="/blog" class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          View archive &rarr;
+        </a>
+      </div>
+      
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {latestPosts.map((post) => (
+          <a href={`/blog/${post.id}`} class="group block">
+            <article class="flex flex-col gap-3">
+              <div class="aspect-[2/1] w-full rounded-xl bg-muted/50 border overflow-hidden relative">
+                {post.data.image ? (
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="absolute inset-0 bg-gradient-to-tr from-muted/50 to-muted/20 group-hover:scale-105 transition-transform duration-500" />
+                )}
+              </div>
+              <div class="flex flex-col gap-2 p-2">
+                <time class="text-xs font-medium text-muted-foreground">{post.data.date}</time>
+                <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                  {post.data.description}
+                </p>
+                {post.data.tags && (
+                  <div class="flex gap-2 mt-2">
+                    {post.data.tags.slice(0, 2).map((tag) => (
+                      <span class="text-xs bg-secondary px-1.5 py-0.5 rounded text-secondary-foreground">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

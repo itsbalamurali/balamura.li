@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Fetch all posts and sort by date descending
+const posts = (await getCollection('posts'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Layout title="Writing" description="Explorations in software architecture, cloud native technologies, and engineering leadership.">
+  <div class="flex flex-col gap-12">
+    <div class="flex flex-col gap-4 text-center md:text-left pt-10">
+      <h1 class="text-4xl font-extrabold tracking-tight lg:text-6xl text-foreground">Writing</h1>
+      <p class="text-xl text-muted-foreground max-w-2xl">
+        Explorations in software architecture, cloud native technologies, and engineering leadership.
+      </p>
+    </div>
+    
+    <div class="grid gap-10">
+      {posts.map((post) => (
+        <a href={`/blog/${post.id}`} class="group">
+          <article class="flex flex-col md:flex-row gap-6 items-start py-6 border-b border-border/40 last:border-0">
+            <div class="flex flex-col gap-1 md:w-32 shrink-0 pt-1">
+              <span class="text-sm font-mono text-muted-foreground">{post.data.date}</span>
+            </div>
+            
+            <div class="flex flex-col gap-3 flex-1">
+               <div class="flex flex-col md:flex-row gap-4 md:items-start justify-between">
+                  <div class="flex flex-col gap-2">
+                      <h2 class="text-2xl font-bold group-hover:text-primary transition-colors text-foreground">
+                      {post.data.title}
+                      </h2>
+                      <p class="text-muted-foreground leading-relaxed max-w-xl">
+                      {post.data.description}
+                      </p>
+                      {post.data.tags && (
+                          <div class="flex gap-2 mt-1">
+                          {post.data.tags.map(tag => (
+                              <span class="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-normal transition-colors">
+                              {tag}
+                              </span>
+                          ))}
+                          </div>
+                      )}
+                  </div>
+                  {post.data.image && (
+                      <div class="relative w-full md:w-48 aspect-video rounded-lg overflow-hidden shrink-0 border bg-muted">
+                          <img 
+                              src={post.data.image} 
+                              alt={post.data.title} 
+                              class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                          />
+                      </div>
+                  )}
+               </div>
+            </div>
+          </article>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
