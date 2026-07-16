@@ -96,7 +96,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="flex flex-col gap-4">
       <h3 class="text-2xl font-bold tracking-tight">Skills & Technology</h3>
       <div class="grid gap-6 md:grid-cols-2">
-        <!-- Card 1 -->
+        <!-- Card 1: Programming / Languages -->
         <div class="rounded-xl border bg-card text-card-foreground shadow">
           <div class="flex flex-col space-y-1.5 p-6">
             <h3 class="font-semibold leading-none tracking-tight text-lg">Programming / Languages</h3>
@@ -108,7 +108,19 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: AI / ML & Modern Stack -->
+        <div class="rounded-xl border bg-card text-card-foreground shadow">
+          <div class="flex flex-col space-y-1.5 p-6">
+            <h3 class="font-semibold leading-none tracking-tight text-lg">AI / ML & Modern Stack</h3>
+          </div>
+          <div class="p-6 pt-0 flex flex-wrap gap-2">
+            {["LLMs (OpenAI, Gemini, Claude)", "Model Context Protocol (MCP)", "MLOps & LLMOps", "LangChain / LlamaIndex", "Vector DBs (pgvector, Pinecone)", "RAG Architectures", "Prompt Engineering", "Fine-Tuning & Quantization"].map(skill => (
+              <span class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground transition-colors">{skill}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Card 3: Cloud & Infrastructure -->
         <div class="rounded-xl border bg-card text-card-foreground shadow">
           <div class="flex flex-col space-y-1.5 p-6">
             <h3 class="font-semibold leading-none tracking-tight text-lg">Cloud & Infrastructure</h3>
@@ -120,7 +132,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 4: Databases & Mobile -->
         <div class="rounded-xl border bg-card text-card-foreground shadow">
           <div class="flex flex-col space-y-1.5 p-6">
             <h3 class="font-semibold leading-none tracking-tight text-lg">Databases & Mobile</h3>
@@ -132,8 +144,8 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="rounded-xl border bg-card text-card-foreground shadow">
+        <!-- Card 5: Certifications (Spanned) -->
+        <div class="rounded-xl border bg-card text-card-foreground shadow md:col-span-2">
           <div class="flex flex-col space-y-1.5 p-6">
             <h3 class="font-semibold leading-none tracking-tight text-lg">Certifications</h3>
           </div>
