@@ -65,13 +65,19 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
         return 'light';
       })();
       
-      document.documentElement.classList.remove('dark', 'hacker');
+      const isHacker = typeof localStorage !== 'undefined' && localStorage.getItem('hacker') === 'true';
+
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
-      } else if (theme === 'hacker') {
-        document.documentElement.classList.add('hacker');
+      } else {
+        document.documentElement.classList.remove('dark');
       }
-      window.localStorage.setItem('theme', theme);
+
+      if (isHacker) {
+        document.documentElement.classList.add('hacker');
+      } else {
+        document.documentElement.classList.remove('hacker');
+      }
     </script>
   </head>
   <body class="antialiased min-h-screen flex flex-col pt-24">
